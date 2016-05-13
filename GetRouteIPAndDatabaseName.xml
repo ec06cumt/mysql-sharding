@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<!--添加机器则，添加分组，之前的分组属性 bInsert均要设置成0 -->
+	<Group gid = "0" name="group0" bInsert="1" minid = "0" maxid="200000" factor="2">
+		<!--分片设置-->
+		<Sharding sid = "0" name = "sharding0" hashval="0" >
+			<Cell cid = "0" name = "Cell0" ip="127.0.0.1" port="6379" database="database0" startid="0" endid= "100000" />
+			<Cell cid = "1" name = "Cell1" ip="127.0.0.2" port="6402" database="database1" startid="100000" endid= "200000" />
+		</Sharding>
+		<Sharding sid = "1" name = "sharding1" hashval="1">
+			<Cell cid = "2" name = "Cell2" ip="127.0.0.3" port="6403" database="database2" startid="0" endid= "100000" />
+			<Cell cid = "3" name = "Cell3" ip="127.0.0.4" port="6404" database="database3" startid="100000" endid= "200000" />
+		</Sharding>
+	</Group>
+	<!--若上面的数据不满足需求，动态添加数据group，设置上面的bInsert="0" -->
+	<Group gid = "1" name="group1" bInsert="0" minid="200000" maxid="1000000" factor="4">
+		<Sharding sid = "3" name = "sharding2" hashval="0" >
+			<Cell cid = "4" name = "Cell4" ip="127.0.0.5" port="6405" database="database4" startid="200000" endid= "600000" />
+			<Cell cid = "5" name = "Cell5" ip="127.0.0.6" port="6406" database="database5" startid="600000" endid= "1000000" />
+		</Sharding>
+		<Sharding sid = "4" name = "sharding3" hashval="1">
+			<Cell cid = "6" name = "Cell6" ip="127.0.0.7" port="6407" database="database6" startid="200000" endid= "600000" />
+			<Cell cid = "7" name = "Cell7" ip="127.0.0.8" port="6408" database="database7" startid="600000" endid= "1000000" />
+		</Sharding>
+		<Sharding sid = "5" name = "sharding4" hashval="2" >
+			<Cell cid = "8" name = "Cell8" ip="127.0.0.9" port="6409" database="database8" startid="200000" endid= "600000" />
+			<Cell cid = "9" name = "Cell9" ip="127.0.0.10" port="6410" database="database9" startid="600000" endid= "1000000" />
+		</Sharding>
+		<Sharding sid = "6" name = "sharding5" hashval="3">
+			<Cell cid = "10" name = "Cell10" ip="127.0.0.11" port="6411" database="database10" startid="200000" endid= "600000" />
+			<Cell cid = "11" name = "Cell11" ip="127.0.0.12" port="6412" database="database11" startid="600000" endid= "1000000" />
+		</Sharding>
+	</Group>
+</config>
